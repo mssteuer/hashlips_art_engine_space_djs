@@ -5,8 +5,8 @@ const { NETWORK } = require(`${basePath}/constants/network.js`);
 const network = NETWORK.eth;
 
 // General metadata for Ethereum
-const namePrefix = "Your Collection";
-const description = "Remember to replace this description";
+const namePrefix = "Casper Space DJ";
+const description = "Thanks for participating in the Casper Wallet Open Beta";
 const baseUri = "ipfs://NewUriToReplace";
 
 const solanaMetadata = {
@@ -24,15 +24,37 @@ const solanaMetadata = {
 // If you have selected Solana then the collection starts from 0 automatically
 const layerConfigurations = [
   {
-    growEditionSizeTo: 5,
+    growEditionSizeTo: 2500,
     layersOrder: [
-      { name: "Background" },
-      { name: "Eyeball" },
-      { name: "Eye color" },
-      { name: "Iris" },
-      { name: "Shine" },
-      { name: "Bottom lid" },
-      { name: "Top lid" },
+      { name: "Background", 
+        options: {
+          bypassDNA: true,
+          displayName: "Spaceship"
+        }
+      },
+      { name: "Window",
+        options: {
+          displayName: "Exterior"
+        }
+       },
+      { name: "HUD"},
+      { name: "Leg", 
+      options: {
+        displayName: "Boots"
+      }
+    },
+      { name: "Torso",
+      options: {
+        displayName: "Body Style"
+      } },
+      { name: "Hands", 
+      options: {
+        displayName: "Instrument"
+      } },
+      { name: "Head", 
+      options: {
+        displayName: "Helmet"
+      } },
     ],
   },
 ];
@@ -42,9 +64,9 @@ const shuffleLayerConfigurations = false;
 const debugLogs = false;
 
 const format = {
-  width: 512,
-  height: 512,
-  smoothing: false,
+  width: 2048,
+  height: 2048,
+  smoothing: true,
 };
 
 const gif = {
@@ -78,23 +100,25 @@ const background = {
   default: "#000000",
 };
 
-const extraMetadata = {};
+const extraMetadata = {
+  creator: "Casper Wallet (casperwallet.io)",
+};
 
 const rarityDelimiter = "#";
 
 const uniqueDnaTorrance = 10000;
 
 const preview = {
-  thumbPerRow: 5,
-  thumbWidth: 50,
+  thumbPerRow: 10,
+  thumbWidth: 125,
   imageRatio: format.height / format.width,
   imageName: "preview.png",
 };
 
 const preview_gif = {
-  numberOfImages: 5,
-  order: "ASC", // ASC, DESC, MIXED
-  repeat: 0,
+  numberOfImages: 10,
+  order: "MIXED", // ASC, DESC, MIXED
+  repeat: -1,
   quality: 100,
   delay: 500,
   imageName: "preview.gif",
